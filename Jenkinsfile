@@ -14,21 +14,21 @@ pipeline {
     }
     stage('Build and push image with Container Builder') {
       steps {
-        sh "Build and push image -- ${APP_NAME}"
+        sh "echo Build and push image -- ${APP_NAME}"
       }
     }
     stage('Deploy Canary') {
       // Canary branch
       when { branch 'canary' }
       steps {
-        sh "Deploy Canary -- ${APP_NAME}"
+        sh "echo Deploy Canary -- ${APP_NAME}"
       }
     }
     stage('Deploy Production') {
       // Production branch
       when { branch 'master' }
       steps{
-        sh "Deploy Production -- ${APP_NAME}"
+        sh "echo Deploy Production -- ${APP_NAME}"
       }
     }
     stage('Deploy Dev') {
@@ -38,7 +38,7 @@ pipeline {
         not { branch 'canary' }
       }
       steps {
-        sh "Deploy Developer Branches -- ${APP_NAME}"
+        sh "echo Deploy Developer Branches -- ${APP_NAME}"
       }
     }
   }
