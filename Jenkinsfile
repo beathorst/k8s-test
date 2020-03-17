@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Build and push image with Container Builder') {
       agent {
-        docker { image 'php:7.4' }
+        docker { image 'php:7.3' }
       }
       steps {
         sh("echo Build and push image -- ${APP_NAME}")
