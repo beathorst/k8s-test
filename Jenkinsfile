@@ -1,6 +1,5 @@
 pipeline {
 
-  agent any
   agent php {
     image 'php:7.4'
   }
