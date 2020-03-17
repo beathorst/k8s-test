@@ -17,8 +17,12 @@ pipeline {
       }
     }
     stage('Build and push image with Container Builder') {
+      agent {
+        docker { image 'bitnami/kubectl' }
+      }
       steps {
-        sh "echo Build and push image -- ${APP_NAME}"
+        sh("echo Build and push image -- ${APP_NAME}")
+        sh("kubectl version")
       }
     }
     stage('Deploy Develop') {
