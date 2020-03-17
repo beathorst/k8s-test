@@ -22,7 +22,7 @@ pipeline {
       }
       steps {
         // sh("echo Build and push image -- ${APP_NAME}")
-        sh("--version")
+        sh("kubectl --version")
       }
     }
     stage('Deploy Develop') {
