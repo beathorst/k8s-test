@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Build and push image with Container Builder') {
       agent {
-        docker { image 'bitnami/kubectl:latest' }
+        docker { image 'gcr.io/cloud-builders/kubectl' }
       }
       steps {
         // sh("echo Build and push image -- ${APP_NAME}")
