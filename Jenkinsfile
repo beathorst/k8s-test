@@ -1,7 +1,9 @@
 pipeline {
 
-  agent php {
-    image 'php:7.4'
+  agent {
+    docker {
+      image 'php:7.4'
+    }
   }
 
   environment {
