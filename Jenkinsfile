@@ -17,11 +17,11 @@ pipeline {
         sh "echo Build and push image -- ${APP_NAME}"
       }
     }
-    stage('Deploy Canary') {
+    stage('Deploy Develop') {
       // Canary branch
-      when { branch 'canary' }
+      when { branch 'develop' }
       steps {
-        sh "echo Deploy Canary -- ${APP_NAME}"
+        sh "echo Deploy Develop -- ${APP_NAME}"
       }
     }
     stage('Deploy Production') {
@@ -31,11 +31,11 @@ pipeline {
         sh "echo Deploy Production -- ${APP_NAME}"
       }
     }
-    stage('Deploy Dev') {
+    stage('Deploy Branches') {
       // Developer Branches
       when {
         not { branch 'master' }
-        not { branch 'canary' }
+        not { branch 'develop' }
       }
       steps {
         sh "echo Deploy Developer Branches -- ${APP_NAME}"
