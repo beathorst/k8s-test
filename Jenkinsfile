@@ -22,6 +22,7 @@ pipeline {
       }
       steps {
         sh("echo Build and push image -- ${APP_NAME}")
+        sh("php -v")
       }
     }
     stage('Deploy Develop') {
