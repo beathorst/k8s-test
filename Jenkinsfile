@@ -1,7 +1,7 @@
 pipeline {
 
   agent {
-    docker {
+    php {
       image 'php:7.4'
     }
   }
