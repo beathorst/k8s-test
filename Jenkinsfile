@@ -1,5 +1,7 @@
 pipeline {
 
+  agent any
+
   environment {
     APP_NAME = "k8s-test"
   }
