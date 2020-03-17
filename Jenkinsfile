@@ -1,6 +1,9 @@
 pipeline {
 
   agent any
+  agent php {
+    image 'php:7.4'
+  }
 
   environment {
     APP_NAME = "k8s-test"
@@ -9,7 +12,10 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh "echo test -- ${APP_NAME}"
+        container('php') {
+          sh("echo test -- ${APP_NAME}")
+          sh("php -v")
+        }
       }
     }
     stage('Build and push image with Container Builder') {
