@@ -18,11 +18,11 @@ pipeline {
     }
     stage('Build and push image with Container Builder') {
       agent {
-        docker { image 'php:7.3' }
+        docker { image 'bitnami/kubectl:latest' }
       }
       steps {
-        sh("echo Build and push image -- ${APP_NAME}")
-        sh("php -v")
+        // sh("echo Build and push image -- ${APP_NAME}")
+        sh("--version")
       }
     }
     stage('Deploy Develop') {
